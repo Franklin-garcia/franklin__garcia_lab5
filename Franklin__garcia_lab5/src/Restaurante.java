@@ -17,11 +17,13 @@ public class Restaurante extends Lugar {
         super();
     }
 
-    public Restaurante(String categoria, String calificacion, String nombre, String dirección, int nivel_seguridad, String salida) {
+    public Restaurante(String categoria, String calificacion, String nombre, String dirección, int nivel_seguridad, carretera salida) {
         super(nombre, dirección, nivel_seguridad, salida);
         this.categoria = categoria;
         this.calificacion = calificacion;
     }
+
+ 
 
     public String getCategoria() {
         return categoria;

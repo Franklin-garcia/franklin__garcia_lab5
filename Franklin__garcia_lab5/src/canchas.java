@@ -16,11 +16,14 @@ public class canchas extends Lugar{
         super();
     }
 
-    public canchas(String categoria, String estado, String nombre, String dirección, int nivel_seguridad, String salida) {
+    public canchas(String categoria, String estado, String nombre, String dirección, int nivel_seguridad, carretera salida) {
         super(nombre, dirección, nivel_seguridad, salida);
         this.categoria = categoria;
         this.estado = estado;
     }
+
+
+
 
     public String getCategoria() {
         return categoria;

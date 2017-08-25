@@ -11,13 +11,13 @@
 public class carretera {
     private int numero;
     private double distancia;
-    private String inicio;
-    private String fin;
+    private int inicio;
+    private int fin;
 
     public carretera() {
     }
 
-    public carretera(int numero, double distancia, String inicio, String fin) {
+    public carretera(int numero, double distancia, int inicio, int fin) {
         this.numero = numero;
         this.distancia = distancia;
         this.inicio = inicio;
@@ -40,21 +40,23 @@ public class carretera {
         this.distancia = distancia;
     }
 
-    public String getInicio() {
-        return inicio;
-    }
-
-    public void setInicio(String inicio) {
-        this.inicio = inicio;
-    }
-
-    public String getFin() {
+    public int getFin() {
         return fin;
     }
 
-    public void setFin(String fin) {
+    public int getInicio() {
+        return inicio;
+    }
+
+    public void setFin(int fin) {
         this.fin = fin;
     }
+
+    public void setInicio(int inicio) {
+        this.inicio = inicio;
+    }
+
+
 
     @Override
     public String toString() {
