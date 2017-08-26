@@ -55,9 +55,6 @@ public class carretera {
     public void setInicio(int inicio) {
         this.inicio = inicio;
     }
-
-
-
     @Override
     public String toString() {
         return ""+numero;

@@ -2,6 +2,10 @@
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import java.util.Random;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -72,6 +76,8 @@ public class Principal extends javax.swing.JFrame {
         cb_seguridad2 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
+        menu_pop = new javax.swing.JPopupMenu();
+        menu_eliminar = new javax.swing.JMenuItem();
         tab_principal = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -80,9 +86,9 @@ public class Principal extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tf_numero = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tf_distancia = new javax.swing.JTextField();
         cb_inicio = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -90,10 +96,27 @@ public class Principal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         cb_salida = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
+        cb_final1 = new javax.swing.JComboBox<>();
+        jLabel26 = new javax.swing.JLabel();
+        tf_distancia1 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        tf_numero1 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Tabla1 = new javax.swing.JTable();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        cb_listar = new javax.swing.JComboBox<>();
+        jPanel7 = new javax.swing.JPanel();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        arbol = new javax.swing.JTree();
 
         jLabel1.setText("Crear restaurantes");
 
@@ -412,6 +435,14 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel25.setText("jLabel25");
 
+        menu_eliminar.setText("eliminar");
+        menu_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_eliminarActionPerformed(evt);
+            }
+        });
+        menu_pop.add(menu_eliminar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tab_principal.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -485,21 +516,49 @@ public class Principal extends javax.swing.JFrame {
         jLabel21.setText("Lugar final");
 
         jButton4.setText("Agregar carretera");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jLabel22.setText("Asignar carretera de salida de un lugar");
 
         jLabel23.setText("Lugar");
 
-        jLabel24.setText("Carretera");
-
         jButton6.setText("Cambiar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        jButton8.setText("Generar numero");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        jLabel24.setText("Lugar final");
+
+        jLabel26.setText("Distancia KM");
+
+        jLabel27.setText("Numero de carretera");
+
+        jButton9.setText("Generar numero");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabel17))
@@ -508,29 +567,53 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addComponent(tf_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel23)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel19)
-                                        .addComponent(jLabel20)
-                                        .addComponent(jLabel21))
-                                    .addComponent(jLabel24))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21))
                                 .addGap(58, 58, 58)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2)
-                                    .addComponent(cb_inicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cb_final, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cb_salida, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(tf_distancia)
+                                    .addComponent(cb_inicio, 0, 186, Short.MAX_VALUE)
+                                    .addComponent(cb_final, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton8))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jButton6)))
-                .addContainerGap(188, Short.MAX_VALUE))
+                        .addGap(163, 163, 163)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addGap(9, 9, 9))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(cb_salida, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(105, 105, 105))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jButton6)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                .addContainerGap(59, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel27))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(tf_distancia1)
+                    .addComponent(cb_final1, 0, 186, Short.MAX_VALUE)
+                    .addComponent(tf_numero1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,12 +622,13 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
+                    .addComponent(tf_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(jButton8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -553,24 +637,143 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(cb_final, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(49, 49, 49)
-                .addComponent(jLabel22)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel22)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(cb_salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_final1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel26)
+                    .addComponent(tf_distancia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton9)
+                        .addComponent(tf_numero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         tab_principal.addTab("Agregar carretera", jPanel5);
+
+        Tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Direccion", "Seguridad", "Entradas", "Salida"
+            }
+        ));
+        Tabla1.setToolTipText("");
+        Tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabla1MouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(Tabla1);
+
+        jLabel28.setText("Listar en tabla");
+
+        jLabel30.setText("Nombre");
+
+        cb_listar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_listarItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(344, 344, 344))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel28))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel28)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(cb_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+
+        tab_principal.addTab("Listar en tabla", jPanel6);
+
+        jButton10.setText("Listar canchas");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        jButton11.setText("Listar Restaurants");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Lugar");
+        arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane5.setViewportView(arbol);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addGap(123, 123, 123))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton10)
+                    .addComponent(jButton11))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
+        tab_principal.addTab("Listar en arbol", jPanel7);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -610,54 +813,212 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CasaMouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        String nombre=tf_nombre.getText();
-        String direccion=ta_direccion.getText();
-        int nivel_seguridad=Integer.parseInt(cb_seguridad.getSelectedItem().toString()); 
-        
-        String categoria=cb_categoria.getSelectedItem().toString();
-        String calificacion=cb_calificacion.getSelectedItem().toString();
-        lugar.add(new Restaurante(categoria,calificacion,nombre,direccion,nivel_seguridad,new carretera()));
+        String nombre = tf_nombre.getText();
+        String direccion = ta_direccion.getText();
+        int nivel_seguridad = Integer.parseInt(cb_seguridad.getSelectedItem().toString());
+
+        String categoria = cb_categoria.getSelectedItem().toString();
+        String calificacion = cb_calificacion.getSelectedItem().toString();
+        lugar.add(new Restaurante(categoria, calificacion, nombre, direccion, nivel_seguridad, new carretera()));
         JOptionPane.showMessageDialog(this, "Hecho");
         tf_nombre.setText("");
         ta_direccion.setText("");
-        
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        String nombre=tf_nombre2.getText();
-        String direccion=ta_direccion2.getText();
-        int nivel_seguridad=Integer.parseInt(cb_seguridad2.getSelectedItem().toString());
-        lugar.add(new casa(nombre,direccion,nivel_seguridad,new carretera()));
+        String nombre = tf_nombre2.getText();
+        String direccion = ta_direccion2.getText();
+        int nivel_seguridad = Integer.parseInt(cb_seguridad2.getSelectedItem().toString());
+        lugar.add(new casa(nombre, direccion, nivel_seguridad, new carretera()));
         JOptionPane.showMessageDialog(this, "Hecho");
         tf_nombre2.setText("");
         ta_direccion2.setText("");
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void tab_principalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tab_principalStateChanged
-        if (tab_principal.getSelectedIndex()==1) {
-            DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+        if (tab_principal.getSelectedIndex() == 1) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
+            DefaultComboBoxModel modelo2 = new DefaultComboBoxModel();
+            DefaultComboBoxModel modelo3 = new DefaultComboBoxModel();
             for (Lugar t : lugar) {
                 modelo.addElement(t);
+                modelo1.addElement(t);
+                modelo2.addElement(t);
+                modelo3.addElement(t);
             }
             cb_inicio.setModel(modelo);
-            cb_final.setModel(modelo);
-            cb_salida.setModel(modelo); 
+            cb_final.setModel(modelo1);
+            cb_salida.setModel(modelo2);
+            cb_final1.setModel(modelo3);
         }
+        if (tab_principal.getSelectedIndex() == 2) {
+            DefaultComboBoxModel modelo4 = new DefaultComboBoxModel();
+            for (Lugar r : lugar) {
+                modelo4.addElement(r);
+            }
+            cb_listar.setModel(modelo4);
+        }
+        if (tab_principal.getSelectedIndex()==3) {
+                 javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Lugar");
+        arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane5.setViewportView(arbol);
+        }
+
     }//GEN-LAST:event_tab_principalStateChanged
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        String nombre=tf_nombre1.getText();
-        String direccion=ta_direccion1.getText();
-        int nivel_seguridad=Integer.parseInt(cb_seguridad1.getSelectedItem().toString());
-        
-        String categoria=cb_categoria1.getSelectedItem().toString();
-        String estado=cb_estado.getSelectedItem().toString();
-       //String categoria, String estado, String nombre, String dirección, int nivel_seguridad, carretera salida
-        lugar.add(new canchas(categoria, estado,nombre,direccion,nivel_seguridad,new carretera()));
+        String nombre = tf_nombre1.getText();
+        String direccion = ta_direccion1.getText();
+        int nivel_seguridad = Integer.parseInt(cb_seguridad1.getSelectedItem().toString());
+
+        String categoria = cb_categoria1.getSelectedItem().toString();
+        String estado = cb_estado.getSelectedItem().toString();
+        //String categoria, String estado, String nombre, String dirección, int nivel_seguridad, carretera salida
+        lugar.add(new canchas(categoria, estado, nombre, direccion, nivel_seguridad, new carretera()));
         JOptionPane.showMessageDialog(this, "hecho");
         tf_nombre1.setText("");
         ta_direccion1.setText("");
     }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        int numero = Integer.parseInt(tf_numero.getText());
+        double distancia = Double.parseDouble(tf_distancia.getText());
+        int inicio = cb_inicio.getSelectedIndex();
+        int fin = cb_final.getSelectedIndex();
+        carretera calle = new carretera(numero, distancia, inicio, fin);
+        carretera.add(calle);
+        lugar.get(inicio).getCarretera_entrada().add(calle);
+        lugar.get(fin).getCarretera_entrada().add(calle);
+        JOptionPane.showMessageDialog(this, "hecho");
+        tf_numero.setText("");
+        tf_distancia.setText("");
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        Random ran = new Random();
+        int num = 1 + ran.nextInt(999999999);
+        tf_numero.setText("" + num);
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        int numero = Integer.parseInt(tf_numero1.getText());
+        double distancia = Double.parseDouble(tf_distancia1.getText());
+        int inicio = cb_salida.getSelectedIndex();
+        int fin = cb_final1.getSelectedIndex();
+        lugar.get(inicio).getSalida().setDistancia(distancia);
+        lugar.get(inicio).getSalida().setFin(fin);
+        lugar.get(inicio).getSalida().setInicio(inicio);
+        lugar.get(inicio).getSalida().setNumero(numero);
+
+        JOptionPane.showMessageDialog(this, "hecho");
+        tf_numero1.setText("");
+        tf_distancia1.setText("");
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        Random ran = new Random();
+        int num = 1 + ran.nextInt(999999999);
+        tf_numero1.setText("" + num);
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void cb_listarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_listarItemStateChanged
+        if (evt.getStateChange() == 1) {
+            Lugar lugar = (Lugar) cb_listar.getSelectedItem();
+            Object[] newrow = {lugar.getNombre(), lugar.getDirección(), lugar.getNivel_seguridad(), lugar.getCarretera_entrada(), lugar.getSalida()};
+            DefaultTableModel Modelo = (DefaultTableModel) Tabla1.getModel();
+            Modelo.addRow(newrow);
+            Tabla1.setModel(Modelo);
+        }
+    }//GEN-LAST:event_cb_listarItemStateChanged
+
+    private void Tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla1MouseClicked
+        if (evt.isMetaDown()) {
+            menu_pop.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+
+    }//GEN-LAST:event_Tabla1MouseClicked
+
+    private void menu_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_eliminarActionPerformed
+        lugar.remove(Tabla1.getSelectedRow());
+        Tabla1.remove(Tabla1.getSelectedRow());
+        ///recargar tab
+        Tabla1.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre", "Direccion", "Seguridad", "Entradas", "Salida"
+                }
+        ));
+        Tabla1.setToolTipText("");
+        Tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabla1MouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(Tabla1);
+///////////////////////////modelo combobox
+        DefaultComboBoxModel modelo4 = new DefaultComboBoxModel();
+        for (Lugar r : lugar) {
+            modelo4.addElement(r);
+        }
+        cb_listar.setModel(modelo4);
+
+        JOptionPane.showMessageDialog(this, "Elimiando");
+
+    }//GEN-LAST:event_menu_eliminarActionPerformed
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        DefaultTreeModel modelo = (DefaultTreeModel) arbol.getModel();
+        DefaultMutableTreeNode nodo_raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        
+        nodo_raiz.removeAllChildren();
+        for (Lugar r : lugar) {
+        int centinela = -1;
+            if (r instanceof canchas) {
+                for (int i = 0; i < nodo_raiz.getChildCount(); i++) {
+                    if (nodo_raiz.getChildAt(i).toString().equals((((canchas) r).getCategoria()))) {
+                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(new canchas(((canchas) r).getCategoria(), ((canchas) r).getEstado(), r.getNombre(), r.getDirección(), r.getNivel_seguridad(), r.getSalida()));
+                        ((DefaultMutableTreeNode) nodo_raiz.getChildAt(i)).add(p);
+                        centinela = 1;
+                    }
+                }
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode(((canchas) r).getCategoria());
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new canchas(((canchas) r).getCategoria(), ((canchas) r).getEstado(), r.getNombre(), r.getDirección(), r.getNivel_seguridad(), r.getSalida()));
+                    n.add(p);
+                    nodo_raiz.add(n);
+
+                }
+                modelo.reload();
+            }
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        DefaultTreeModel modelo = (DefaultTreeModel) arbol.getModel();
+        DefaultMutableTreeNode nodo_raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        nodo_raiz.removeAllChildren();
+        for (Lugar r : lugar) {
+                    int centinela = -1;
+            if (r instanceof Restaurante) {
+                for (int i = 0; i < nodo_raiz.getChildCount(); i++) {
+                    if (nodo_raiz.getChildAt(i).toString().equals((((Restaurante) r).getCategoria()))) {
+                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Restaurante(((Restaurante) r).getCategoria(),((Restaurante) r).getCalificacion(),r.getNombre(),r.getDirección(),r.getNivel_seguridad(),r.getSalida()));
+                        ((DefaultMutableTreeNode) nodo_raiz.getChildAt(i)).add(p);
+                        centinela = 1;
+                    }
+                }
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n = new DefaultMutableTreeNode(((Restaurante) r).getCategoria());
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Restaurante(((Restaurante) r).getCategoria(),((Restaurante) r).getCalificacion(),r.getNombre(),r.getDirección(),r.getNivel_seguridad(),r.getSalida()));
+                    n.add(p);
+                    nodo_raiz.add(n);
+                }
+                modelo.reload();
+            }
+        }
+    }//GEN-LAST:event_jButton11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -696,24 +1057,31 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Casa;
+    private javax.swing.JTable Tabla1;
+    private javax.swing.JTree arbol;
     private javax.swing.JComboBox<String> cb_calificacion;
     private javax.swing.JComboBox<String> cb_categoria;
     private javax.swing.JComboBox<String> cb_categoria1;
     private javax.swing.JComboBox<String> cb_estado;
     private javax.swing.JComboBox<String> cb_final;
+    private javax.swing.JComboBox<String> cb_final1;
     private javax.swing.JComboBox<String> cb_inicio;
+    private javax.swing.JComboBox<String> cb_listar;
     private javax.swing.JComboBox<String> cb_salida;
     private javax.swing.JComboBox<String> cb_seguridad;
     private javax.swing.JComboBox<String> cb_seguridad1;
     private javax.swing.JComboBox<String> cb_seguridad2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -732,7 +1100,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -744,22 +1116,30 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JDialog jd_canchas;
     private javax.swing.JDialog jd_casa;
     private javax.swing.JDialog jd_restaurantes;
+    private javax.swing.JMenuItem menu_eliminar;
+    private javax.swing.JPopupMenu menu_pop;
     private javax.swing.JTextArea ta_direccion;
     private javax.swing.JTextArea ta_direccion1;
     private javax.swing.JTextArea ta_direccion2;
     private javax.swing.JTabbedPane tab_principal;
+    private javax.swing.JTextField tf_distancia;
+    private javax.swing.JTextField tf_distancia1;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_nombre2;
+    private javax.swing.JTextField tf_numero;
+    private javax.swing.JTextField tf_numero1;
     // End of variables declaration//GEN-END:variables
     ArrayList<Lugar> lugar = new ArrayList();
-    ArrayList<carretera>carretera=new ArrayList();
+    ArrayList<carretera> carretera = new ArrayList();
 }
